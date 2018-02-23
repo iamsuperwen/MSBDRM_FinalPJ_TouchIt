@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!--LAUNCH A NODE TO PUBLISH AN STATIC TRANSFORMATION BETWEEN /base_link and /WORLD WITH A FREQ 100-->
+  <node pkg="tf" type="static_transform_publisher" name="static_transformation" args="0 0 0 0 0 0 1 world /base_link 10" />
+  <node pkg="tf" type="static_transform_publisher" name="static_kinect2world" args="0 0 0 0.5 0.5 -0.5 -0.5 world kinect2_link 10" />
+  <!--<node pkg="tf" type="static_transform_publisher" name="static_kinect2world" args="-3.4 -0.28 -0.05 0.5 -0.5 0.5 -0.5 base_link kinect2_link 10" />-->
+
+  <!--LAUNCH RVIZ NODE -->
+  <!--<node name="rviz" pkg="rviz" type="rviz" args="-d $(find ball_pos)/launch/rviz_config/kinect_pcl.rviz"/> -->
+
+
+  <!--LAUNCH VISUALIZATION MARKER NODE-->
+  <node name="kinect_vision_node" pkg="ball_pos" type="ball_pos_node" output="screen"/>
+ 
+</launch>
